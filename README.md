@@ -8,9 +8,9 @@
 
 ### 昆莱山-熊猫人雷霆之灵-2v3
 
-Rematch 队伍配置：`熊猫人雷霆之灵:22RH:2210DP:1220AJ:ZL:`
+Rematch `熊猫人雷霆之灵:22RH:2210DP:1220AJ:ZL:`
 
-BattlePetScript：
+BattlePetScript
 ```
 change(next) [ self.dead ]
 if [ self(#1).active & enemy(#1).active ]
@@ -45,3 +45,123 @@ if [ self(#2).active & enemy(#3).active ]
   ability(#1)
 endif
 ```
+### 锦绣谷-天选者亚济-2v3
+
+Rematch `天选者亚济:215L:2124DU:122CAJ:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#2) [ enemy.round=1 ]
+  ability(#3) [ enemy.round=2 ]
+  ability(#2) [ enemy.round=3 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ enemy.round=1 ]
+  ability(#3) [ enemy.round=2 ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#3) [ enemy.round=1 ]
+  if [ enemy.hp < 608 & !enemy.ability(#2).usable & !enemy.ability(#3).usable & !enemy(#3).aura(生存).exists ]
+    ability(#2)
+  endif
+  if [ enemy.hp > 250]
+    ability(#1)
+  endif
+  standby
+endif
+```
+
+### 寓言兽通用-3v3
+
+Rematch `幸运的小艺:22UH:211414Q:222514S:21181FS:`
+
+### 四风谷-农夫倪石-2v3
+
+Rematch `农夫倪石:215E:1228BV:1225QC:ZL:P:200:1:::::`
+
+BattlePetScript 
+
+```
+change(#1) [ self(#3).dead ]
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ enemy.round=1 ]
+  change(#3)
+endif
+if [ self(#3).active & enemy(#1).active ]
+  ability(#2) [ self.round=1 ]
+  ability(#3) [ self.round=2 ]
+  ability(#1) [ self.round=3 ]
+  ability(#3) [ self.round=4 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#2).active ]
+  ability(#1) [ enemy.round=1 ]
+  ability(#3) [ enemy.round=2 ]
+  ability(#2) [ enemy.round=3 ]
+  ability(#3) [ enemy.round=4 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  ability(#1) [ enemy.round=1 ]
+  change(#2) [ enemy.round=2 ]
+endif
+if [ self(#2).active & enemy(#3).active ]
+  change(#3)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  if [ enemy(#3).aura(遁地).exists & self.ability(#3).usable ]
+    ability(#3)
+  endif
+  ability(#1)
+endif
+```
+
+### 卡桑琅丛林--2v3
+
+**第二场不稳定需多次测试**
+
+Rematch `莫鲁克:215D:122CAJ:2215HD:ZL:`
+
+BattlePetScript
+
+```
+change(#1) [ self(#2).dead ]
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#1) [ enemy.round=1 ]
+  ability(#3) [ enemy.round=2 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  change(#2)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  if [ self.aura(昏睡).exists ]
+    standby
+  endif
+  ability(#2) [ enemy.hpp > 50 & self.hp < enemy.hp ]
+  ability(#3) [ !weather(月光) ]
+  ability(#1) [ weather(月光) ]
+  ability(#1) [ enemy.hp > 618 ]
+  standby
+endif
+if [ self(#1).active & enemy(#3).active ]
+  if [ enemy.hp < 618 ]
+    ability(#2)
+  endif
+  ability(#1)
+endif
+```
+
