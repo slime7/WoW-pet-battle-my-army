@@ -14,20 +14,20 @@ BattlePetScript
 ```
 change(next) [ self.dead ]
 if [ self(#1).active & enemy(#1).active ]
-  ability(#1) [ enemy.round=1 ]
-  ability(#2) [ enemy.round=2 ]
-  ability(#1) [ enemy.round=3 ]
-  ability(#1) [ enemy.round=4 ]
-  ability(#1) [ enemy.round=5 ]
-  ability(#3) [ enemy.round=6 ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1) [ enemy.round = 3 ]
+  ability(#1) [ enemy.round = 4 ]
+  ability(#1) [ enemy.round = 5 ]
+  ability(#3) [ enemy.round = 6 ]
   ability(#1)
 endif
 if [ self(#1).active & enemy(#2).active ]
-  ability(#2) [ enemy.round=1 ]
-  ability(#1) [ enemy.round=2 ]
-  ability(#1) [ enemy.round=3 ]
-  ability(#1) [ enemy.round=4 ]
-  ability(#3) [ enemy.round=5 ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#1) [ enemy.round = 2 ]
+  ability(#1) [ enemy.round = 3 ]
+  ability(#1) [ enemy.round = 4 ]
+  ability(#3) [ enemy.round = 5 ]
   ability(#1)
 endif
 if [ self(#2).active & enemy(#2).active ]
@@ -37,9 +37,9 @@ if [ self(#1).active & enemy(#3).active ]
   ability(#1)
 endif
 if [ self(#2).active & enemy(#3).active ]
-  ability(#1) [ enemy.round=1 ]
-  ability(#3) [ enemy.round=2 ]
-  if [ enemy.hp < 608 ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
+  if [ enemy.hp < 618 ]
     ability(#2)
   endif
   ability(#1)
@@ -54,14 +54,14 @@ BattlePetScript
 ```
 change(next) [ self.dead ]
 if [ self(#1).active & enemy(#1).active ]
-  ability(#2) [ enemy.round=1 ]
-  ability(#3) [ enemy.round=2 ]
-  ability(#2) [ enemy.round=3 ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
+  ability(#2) [ enemy.round = 3 ]
   ability(#1)
 endif
 if [ self(#1).active & enemy(#2).active ]
-  ability(#2) [ enemy.round=1 ]
-  ability(#3) [ enemy.round=2 ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
   ability(#1)
 endif
 if [ self(#2).active & enemy(#2).active ]
@@ -71,8 +71,8 @@ if [ self(#1).active & enemy(#3).active ]
   ability(#1)
 endif
 if [ self(#2).active & enemy(#3).active ]
-  ability(#3) [ enemy.round=1 ]
-  if [ enemy.hp < 608 & !enemy.ability(#2).usable & !enemy.ability(#3).usable & !enemy(#3).aura(生存).exists ]
+  ability(#3) [ enemy.round = 1 ]
+  if [ enemy.hp < 618 & !enemy.ability(#2).usable & !enemy.ability(#3).usable & !enemy(#3).aura(生存).exists ]
     ability(#2)
   endif
   if [ enemy.hp > 250]
@@ -96,39 +96,39 @@ BattlePetScript
 change(#1) [ self(#3).dead ]
 change(next) [ self.dead ]
 if [ self(#1).active & enemy(#1).active ]
-  ability(#3) [ enemy.round=1 ]
+  ability(#3) [ enemy.round = 1 ]
   change(#3)
 endif
 if [ self(#3).active & enemy(#1).active ]
-  ability(#2) [ self.round=1 ]
-  ability(#3) [ self.round=2 ]
-  ability(#1) [ self.round=3 ]
-  ability(#3) [ self.round=4 ]
+  ability(#2) [ self.round = 1 ]
+  ability(#3) [ self.round = 2 ]
+  ability(#1) [ self.round = 3 ]
+  ability(#3) [ self.round = 4 ]
   ability(#1)
 endif
 if [ self(#3).active & enemy(#2).active ]
-  ability(#1) [ enemy.round=1 ]
-  ability(#3) [ enemy.round=2 ]
-  ability(#2) [ enemy.round=3 ]
-  ability(#3) [ enemy.round=4 ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
+  ability(#2) [ enemy.round = 3 ]
+  ability(#3) [ enemy.round = 4 ]
   ability(#1)
 endif
 if [ self(#3).active & enemy(#3).active ]
-  ability(#1) [ enemy.round=1 ]
-  change(#2) [ enemy.round=2 ]
+  ability(#1) [ enemy.round = 1 ]
+  change(#2) [ enemy.round = 2 ]
 endif
 if [ self(#2).active & enemy(#3).active ]
   change(#3)
 endif
 if [ self(#1).active & enemy(#3).active ]
-  if [ enemy(#3).aura(遁地).exists & self.ability(#3).usable ]
+  if [ enemy(#3).ability(#3).usable & self.ability(#3).usable ]
     ability(#3)
   endif
   ability(#1)
 endif
 ```
 
-### 卡桑琅丛林--2v3
+### 卡桑琅丛林-莫鲁克-2v3
 
 **第二场不稳定需多次测试**
 
@@ -140,8 +140,8 @@ BattlePetScript
 change(#1) [ self(#2).dead ]
 change(next) [ self.dead ]
 if [ self(#1).active & enemy(#1).active ]
-  ability(#1) [ enemy.round=1 ]
-  ability(#3) [ enemy.round=2 ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
   ability(#1)
 endif
 if [ self(#1).active & enemy(#2).active ]
@@ -165,3 +165,187 @@ if [ self(#1).active & enemy(#3).active ]
 endif
 ```
 
+### 恐惧废土-熊猫人流水之灵-2v3
+
+Rematch `熊猫人流水之灵:22RE:1124GM:1219R4:ZL:P:650::9::::`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#1) [ enemy.round = 2 ]
+  ability(#3) [ enemy.round = 3 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  if [ !self(#3).played ]
+    change(#3)
+  endif
+  ability(#3) [ self.aura(喷泉).duration = 1 & self.aura(湍流旋涡).duration = 1 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  change(#1)
+endif
+```
+
+### 恐惧废土-废土行者苏游-2v3
+
+Rematch `废土行者苏游:215J:211A7J:122CAJ:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ enemy.round = 4 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#2) [ enemy.hp < 618 ]
+  ability(#1)
+endif
+```
+
+### 螳螂高原-探索者祖什-2v3
+
+Rematch `探索者祖什:21B6:1216EF:21244C:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#3) [ enemy.round = 1 ]
+  change(#3) [ enemy.round = 2 & !self(#3).played ]
+  ability(#2) [ self.round = 1 & enemy.round != 1 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  change(#2)
+endif
+```
+
+### 螳螂高原-熊猫人烈焰之灵-2v3
+
+Rematch `熊猫人烈焰之灵:22RF:1216EF:1126140:ZL:P:600::::::`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ self.ability(#2).usable ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  change(#3) [ !self(#3).played ]
+endif
+if [ self(#3).active & enemy(#3).active ]
+  change(#2)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#2) [ !enemy.aura(嚎叫).exists & self.ability(#2).usable ]
+  ability(#3) [ enemy.aura(嚎叫).exists ]
+  ability(#1)
+endif
+```
+
+### 昆莱山-勇敢的尹勇-2v3
+
+Rematch `勇敢的尹勇:215I:2115HD:122CAJ:ZL:`
+
+BattlePetScript
+
+```
+change(#1) [ self(#2).dead ]
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ enemy.round = 1 ]
+  change(#2) [ !self(#2).played ]
+endif
+if [ self(#2).active & enemy(#1).active ]
+  ability(#3) [ self.round = 1 ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  ability(#1) [ enemy.round = 1 ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  ability(#2) [ enemy.hp < 618 ]
+  ability(#1)
+endif
+```
+
+### 翡翠林-熊猫人微风之灵-2v3
+
+Rematch `熊猫人微风之灵:22RG:2215HD:1219R4:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  quit [ self.aura(昏睡).exists ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  change(#3) [ !self(#3).played ]
+endif
+if [ self(#3).active & enemy(#3).active ]
+  change(#2) [ !self(#2).played ]
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#3) [ self.round = 1 ]
+  ability(#2) [ self.round = 2 ]
+  ability(#1)
+endif
+```
+
+
+
+## 协议
+
+本文章所有内容均在 [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 许可下发布。 
