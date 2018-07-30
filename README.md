@@ -88,7 +88,7 @@ Rematch `幸运的小艺:22UH:211414Q:222514S:21181FS:`
 
 ### 四风谷-农夫倪石-2v3
 
-Rematch `农夫倪石:215E:1228BV:1225QC:ZL:P:200:1:::::`
+Rematch `农夫倪石:215E:1225QC:ZL:1228BV:P:200:1:::::`
 
 BattlePetScript 
 
@@ -196,7 +196,7 @@ endif
 
 ### 恐惧废土-废土行者苏游-2v3
 
-Rematch `废土行者苏游:215J:211A7J:122CAJ:ZL:`
+Rematch `废土行者苏游:215J:2114F9:122CAJ:ZL:`
 
 BattlePetScript
 
@@ -285,7 +285,7 @@ endif
 
 ### 昆莱山-勇敢的尹勇-2v3
 
-Rematch `勇敢的尹勇:215I:2115HD:122CAJ:ZL:`
+Rematch `勇敢的尹勇:215I:122CAJ:2115HD:ZL:`
 
 BattlePetScript
 
