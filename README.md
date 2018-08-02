@@ -130,8 +130,6 @@ endif
 
 ### 卡桑琅丛林-莫鲁克-2v3
 
-**第二场不稳定需多次测试**
-
 Rematch `莫鲁克:215D:122CAJ:2215HD:ZL:`
 
 BattlePetScript
@@ -151,11 +149,14 @@ if [ self(#2).active & enemy(#2).active ]
   if [ self.aura(昏睡).exists ]
     standby
   endif
-  ability(#2) [ enemy.hpp > 50 & self.hp < enemy.hp ]
+  ability(#2) [ self.aura(韧性).exists ]
   ability(#3) [ !weather(月光) ]
   ability(#1) [ weather(月光) ]
   ability(#1) [ enemy.hp > 618 ]
   standby
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#1)
 endif
 if [ self(#1).active & enemy(#3).active ]
   if [ enemy.hp < 618 ]
@@ -341,6 +342,36 @@ if [ self(#2).active & enemy(#3).active ]
   ability(#3) [ self.round = 1 ]
   ability(#2) [ self.round = 2 ]
   ability(#1)
+endif
+```
+
+### 达拉然-阿玛利亚-2v3
+
+Rematch `阿玛利亚:38V1:122CAJ:ZL:1228BV:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  ability(#2)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  quit
+endif
+if [ self(#2).active & enemy(#3).active ]
+  change(#3)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  ability(#3) [ enemy.hp < 300 ]
+  ability(#3)
 endif
 ```
 
