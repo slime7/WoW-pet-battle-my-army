@@ -375,14 +375,68 @@ if [ self(#3).active & enemy(#3).active ]
 endif
 ```
 
-### 破碎海滩--2v3
+### 达拉然-加尔维斯顿先生-2v3
 
-Rematch ``
+Rematch `加尔维斯顿先生:30RE:2215HD:1215G2:ZL:`
 
 BattlePetScript
 
 ```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ enemy.round = 1 & !weather(月光) ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#3)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#1).active ]
+  change(#3)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#2) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#1).active ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#1) [ enemy.round = 2 ]
+  ability(#2) [ enemy.round = 3 ]
+  ability(#1) [ enemy.round = 4 ]
+  ability(#3) [ enemy.round = 5 ]
+  ability(#1) [ enemy.round = 6 ]
+endif
+```
 
+
+
+### 破碎海滩-无名秘术师-2v3
+
+Rematch `无名秘术师:3J5V:1225QC:12292L:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#3) [ enemy.round = 2 ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ self.ability(#2).usable ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#3).active ]
+  ability(#3) [ enemy.round = 1 ]
+  ability(#2) [ self.ability(#2).usable ]
+  ability(#1) [ enemy.hp > 650 ]
+  standby
+endif
+if [ self(#2).active & enemy(#3).active ]
+  ability(#3)
+endif
 ```
 
 
