@@ -439,6 +439,37 @@ if [ self(#2).active & enemy(#3).active ]
 endif
 ```
 
+### 要塞-斯奎特-2v3
+
+Rematch `斯奎特:2DAB:2215HD:1218E8:ZL:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+if [ self(#1).active & enemy(#1).active ]
+  ability(#3) [ !weather(月光) ]
+  ability(#1)
+endif
+if [ self(#1).active & enemy(#2).active ]
+  ability(#2) [ enemy.round = 1 ]
+  ability(#3) [ !weather(月光) & self.ability(#3).usable ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#2).active ]
+  ability(#2) [ enemy.hp < 970 ]
+  ability(#1)
+endif
+if [ self(#2).active & enemy(#3).active ]
+  change(#3) [ !self(#3).played ]
+  ability(#2) [ enemy.hp < 1200 ]
+  ability(#1)
+endif
+if [ self(#3).active & enemy(#3).active ]
+  change(#2)
+endif
+```
+
 
 
 ## 协议
