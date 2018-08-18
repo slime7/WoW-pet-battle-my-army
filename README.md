@@ -470,6 +470,19 @@ if [ self(#3).active & enemy(#3).active ]
 endif
 ```
 
+### 要塞-挑战木桩-三鸟-1v3
+
+Rematch `挑战木桩-三鸟:2JJR:12281LP:12281LP:2215HD:`
+
+BattlePetScript
+
+```
+change(next) [ self.dead ]
+ability(#3) [ self.ability(#3).usable & !enemy(#2).active ]
+ability(#2) [ self.ability(#2).usable ]
+ability(#1)
+```
+
 
 
 ## 协议
